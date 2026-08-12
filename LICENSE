@@ -1,16 +1,52 @@
-# HCLR 开源协议（待定）
+# HCLR 自定义授权协议 / Custom License
 
-本文件为占位。正式公开前由作者决定授权方式。
+**人类认知杠杆率（HCLR）— Human Cognitive Leverage Ratio**
+作者 / Author: tri-chinaroot
 
-候选方案：
+生效日期 / Effective date: 2026-08-12
 
-- **MIT License**：代码部分最宽松，允许任意使用（需保留版权声明）；
-- **Apache 2.0**：代码 + 专利授权条款；
-- **CC BY 4.0**：方法文档部分（允许转载引用，需署名）；
-- **保留权利（All Rights Reserved）**：在专利策略确定前默认采用。
+---
 
-## 当前状态
+## 授权条款 / Terms
 
-- 仓库为**私有**；
-- 未授予任何人使用、复制、分发本仓库内容的权利；
-- 公开前将替换本文件。
+### 1. 非商业使用 / Non-commercial Use
+
+任何人或组织可以**免费**使用、复制、修改、分发本仓库的全部内容（包括文档、Schema、代码等），但必须同时满足以下条件：
+
+> 1. **告知（Notification）**：使用或引用前，需在本仓库的GitHub Issues中**开一个Issue**，说明使用意图、使用方式和联系方式；
+> 2. **署名（Attribution）**：在衍生文档、产品、展示材料中明确署名作者 `tri-chinaroot`，并保留本授权声明；
+> 3. **非商业（Non-commercial）**：不得用于任何商业目的（包括但不限于销售、付费服务、商业咨询交付物、企业内商业化使用）。
+
+**Non-commercial use is free, subject to: (1) opening a GitHub Issue in this repository to notify the author before use; (2) crediting the author `tri-chinaroot` in any derivative work; (3) no commercial use of any kind.**
+
+### 2. 商业使用 / Commercial Use
+
+任何商业目的的使用（销售、付费服务、商业交付、企业内商业化等）必须**另行与作者协商并获得书面授权**。未经授权，不得商业使用。
+
+**Commercial use requires a separate written agreement with the author. Unauthorized commercial use is prohibited.**
+
+### 3. 修改与衍生 / Modifications & Derivatives
+
+允许修改和衍生，但衍生作品必须：
+
+- 继续遵守本授权协议；
+- 在显著位置声明"基于HCLR（tri-chinaroot）修改"。
+
+**Derivatives must keep this license and state their origin.**
+
+### 4. 无担保 / No Warranty
+
+本内容按"现状"提供，不附带任何明示或暗示的担保，包括但不限于适销性、特定用途适用性和不侵权保证。作者不对因使用本内容产生的任何损失承担责任。
+
+**The content is provided "AS IS" without warranty of any kind. The author is not liable for any damages arising from its use.**
+
+### 5. 联系与授权申请 / Contact
+
+商业授权、合作或其他咨询，请通过本仓库GitHub Issues联系作者。
+
+---
+
+## 与其他协议的说明 / Notes
+
+- 本协议为自定义授权，不属于标准开源协议（MIT/Apache/CC等），请使用者在遵守上述条款的前提下自由使用；
+- 作者保留修改本协议的权利，修改后版本适用于修改生效后的新分发内容。

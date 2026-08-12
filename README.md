@@ -1,89 +1,228 @@
-# HCLR — 人类认知杠杆率
+# 你的判断改变了AI多少？
 
-> **Human Cognitive Leverage Ratio**
-> 评估 AI 使用者对模型输出的影响程度 —— 一种面向 AI 使用者的自我评估方法。
+> **人类认知杠杆率（HCLR）：一种评估AI使用者对模型输出影响程度的方法**
 
-AI 写了很多，但哪些关键变化真正来自你？
+**How Much Did Your Judgment Change AI?**
+**The Human Cognitive Leverage Ratio (HCLR): A Method for AI Users to Assess Their Influence on Model Outputs**
 
-HCLR 帮助你记录从 AI 初稿到最终成果的全过程，观察你的**稀疏认知介入**（少量但关键的人类判断）对模型输出产生了多大影响，并持续跟踪你的个人变化趋势。
+---
 
-## 为什么需要 HCLR
+## 摘要 / Abstract
 
-在与大模型协作时，同样一段输出，不同使用者的处理方式完全不同：
+AI能生成大量内容，但"生成得多"不等于"做得好"。同样一段AI输出，不同使用者处理方式完全不同：有人照单全收，有人逐句润色，有人只提出三五条关键判断，却让成果发生方向性改变。
 
-- 有的人照单全收，不做任何修改；
-- 有的人逐句润色，改动很多但方向未变；
-- 有的人只提出三五条关键判断，却让成果发生方向性改变。
+HCLR（Human Cognitive Leverage Ratio，人类认知杠杆率）是一种面向AI使用者的自我评估方法。它记录从AI初稿到最终成果的全过程，观察使用者的**稀疏认知介入**（少量但关键的人类判断）对模型输出产生了多大影响，并通过两轮确认跟踪成果是否真正被采纳、是否获得受众认可。
 
-HCLR 关注的不是“谁写得快”，而是：
+> AI generates a lot, but generating a lot is not the same as doing good work. HCLR is a self-assessment method for AI users. It records the process from the initial AI draft to the final deliverable, and observes how much the user's **sparse cognitive interventions** (few but critical human judgments) influenced the model output.
 
-> **在使用者的指导下，AI 产出发生了多大范围、多少价值的改变；使用者是否愿意采纳成果；成果进入真实场景后是否获得受众认可。**
+---
 
-## 核心概念
+## 1. 为什么需要HCLR / Why HCLR
 
-| 概念 | 含义 |
-|---|---|
-| 原始生成 `O0` | 模型在无介入条件下产出的初始输出 |
-| 人类介入 `h` | 使用者主动、自主发出的关键判断（纠正、约束、方向调整等） |
-| 介入后成果 `O1` | 经过介入后产出的最终成果 |
-| 第一轮确认 `C1` | 使用者确认介入后的成果是否达到自己愿意采纳的标准 |
-| 第二轮确认 `C2` | 成果触达受众后，使用者根据真实反馈确认成果是否获得认可 |
+现有工具大多只记录"是否满意"（点赞/点踩），无法回答：
 
-完整过程链：
+- 使用者是否真正改变了AI的输出？
+- 改变发生在哪个层面——措辞、局部内容、结论、整体方案，还是问题框架？
+- 使用者投入了多少关键判断，才让成果达到可采纳？
+- 一段时间后，使用者是否越来越能以更少的介入产生更大的有效改变？
 
-```text
+HCLR尝试为这些问题提供一种轻量、可持续的记录与观察方法。
+
+> Existing tools mostly record whether users are satisfied (thumbs up/down). They cannot answer: Did the user actually change the AI output? At what level — wording, content, conclusions, the whole plan, or the problem framing? How many key judgments were needed? Is the user getting better at producing larger effective changes with fewer interventions over time?
+
+## 2. 核心定义 / Core Definitions
+
+**HCLR是一种面向AI使用者的稀疏介入能力自我评估方法。** 在给定AIGC模型、任务领域和观察周期内，使用者记录自己通过有限的显性介入使生成成果发生的改变，并进行两轮确认。
+
+形式化条件表示：
+
+```
+HCLR(u | m, d, T)
+```
+
+- `u`：使用者（user）
+- `m`：模型及版本（model, a relatively stable tool environment）
+- `d`：任务领域（task domain）
+- `T`：观察周期（observation period）
+
+**模型视为既定工具环境。** 不要求完全剥离人与模型的贡献，但更换模型、任务领域或受众时应标记序列断点。
+
+### 过程链 / Process Chain
+
+```
 O0 → h → O1 → C1 → C2
 ```
 
-## 项目结构
+| 符号 | 含义 | Meaning |
+|---|---|---|
+| `O0` | 原始生成（无介入条件下的初始输出） | Original AI output |
+| `h` | 人类介入（主动、自主的关键判断） | Human intervention |
+| `O1` | 介入后成果 | Output after intervention |
+| `C1` | 第一轮确认：使用者确认是否采纳 | First confirmation: adoption |
+| `C2` | 第二轮确认：根据真实受众反馈确认是否认可 | Second confirmation: audience recognition |
 
-```text
-hclr/
-├── README.md              # 本文件
-├── METHOD.md              # HCLR 方法说明（白皮书）
-├── SCORING.md             # 计分规则与指标定义
-├── LIMITATIONS.md         # 局限性与边界条件
-├── PRIVACY.md             # 隐私与数据政策
-├── PRODUCT_VISION.md      # 产品愿景与商业化路径
-├── examples/              # 分领域示例
-├── schema/                # 记录数据 Schema
-├── app/                   # 记录与计算工具
-└── docs/                  # 其他文档
+## 3. 如何记录 / How to Record
+
+### 3.1 基本记录单元：任务事件 / Task Event
+
+基本计算单位为**任务—成果转换事件**（任务事件）：一个明确的AI协作任务，从原始生成开始，经过若干人类介入，形成可确认的最终成果。单条介入不单独作为计算单位，避免把同一成果改变重复归因。
+
+> The basic unit is a task event: one AI collaboration task from original generation through human interventions to a confirmable final output. Individual interventions are tracked within the event but not scored separately.
+
+### 3.2 记录字段 / Record Fields
+
+- `task_id`、`domain`（领域）、`model`（模型及版本）、`audience`（受众类型）
+- `O0`（原始生成，冻结不可覆盖）、`O1`（最终成果）
+- `interventions[]`（介入列表：文本、类型、时间）
+- `I`（介入量）、`P`（改变范围P1–P5）
+- `C1`（0/1）、`C2`（1/0/待确认）、`C2_note`（确认依据）
+- 时间戳（创建/第一轮确认/第二轮确认）
+
+完整字段定义见 [`schema/hclr-record.schema.json`](schema/hclr-record.schema.json)。
+
+### 3.3 人类介入 / Human Intervention
+
+介入是使用者**主动、自主**发出的关键判断，例如：事实纠正、目标或范围调整、约束补充、结论修正、分析框架改变、风格与受众适配。
+
+**两条原则：**
+
+1. **介入必须主动**：AI不得通过主动学习（Active Learning）机制决定人的审查配额、介入对象或介入边界；
+2. **稀疏是事后观察属性**：不是AI预先分配的反馈预算。
+
+> Interventions must be initiated by the human. AI must not decide when or what the human should review. "Sparsity" is an observed property after the fact, not a pre-allocated feedback budget.
+
+### 3.4 介入量 / Intervention Amount (I)
+
+三种口径，记录时声明采用哪一种：
+
+| 口径 | 定义 | 推荐 |
+|---|---|---|
+| 判断数 | 独立语义判断/关键意见条数 | 默认推荐 |
+| 字数 | 介入文本总字符数 | 自动统计方便 |
+| 次数 | 介入操作次数 | 最简单 |
+
+> 重要边界：显性介入量不等于完整认知投入（审阅、搜索、核查、推理成本未计入）。HCLR衡量的是"显性介入杠杆"，不是完整的认知能力得分。
+
+### 3.5 改变范围 / Scope of Change (P1–P5)
+
+| 等级 | 含义 | 示例 |
+|---|---|---|
+| P1 | 局部措辞、事实或单项内容改变 | 修正错别字、补充数据点 |
+| P2 | 一个模块、主要段落或一条论证改变 | 重写某段论证 |
+| P3 | 多个主要内容或核心结论改变 | 结论方向调整 |
+| P4 | 整体方案、主要建议或交付结构改变 | 交付结构重排 |
+| P5 | 问题定义、分析框架或最终方向改变 | 重新定义问题 |
+
+**重要**：P1–P5是顺序等级（ordinal），不是已验证的等距量表。在完成标定前，P只作为分类变量分层报告，不直接参与比率计算。
+
+### 3.6 双重确认 / Double Confirmation
+
+**第一轮 C1**（生成阶段）：使用者确认本人是否采纳——`1` 采纳 / `0` 不采纳。
+
+**第二轮 C2**（成果触达受众后）：使用者根据真实反馈确认受众是否认可——`1` 认可 / `0` 未认可 / `∅` 待确认。
+
+- 第二轮是使用者对**真实反馈**的解读，不是生成阶段对受众认可的预测，不要求研究者直接调查受众；
+- **待确认不等于失败**：未获足够反馈记为待确认，不得按0处理；延迟反馈回填至**原任务批次**；
+- 报告应披露待确认比例。
+
+**结果状态：**
+
+| 状态 | C1 | C2 | 含义 |
+|---|---|---|---|
+| S0 | 0 | — | 未采用 |
+| S1 | 1 | ∅ | 已采用，待确认 |
+| S2 | 1 | 0 | 已采用，未获认可 |
+| S3 | 1 | 1 | 已采用并获认可 |
+
+## 4. 计分与报告 / Scoring & Reporting
+
+### 4.1 辅助指标 / Companion Metrics
+
+| 指标 | 定义 | 说明 |
+|---|---|---|
+| 直接采用率 | 无介入即采用 / 全部任务 | 初稿质量基线 |
+| 介入后采用率 | C1=1 / 有介入任务 | 介入是否带来可采纳成果 |
+| 第二轮完成率 | 有C2结果 / C1=1任务 | 反馈回填完整度 |
+| 已确认认可率 | C2=1 / 有C2结果任务 | 已确认样本中的认可比例 |
+| 平均介入量 | ΣI / 任务数 | 每任务介入成本 |
+| 高杠杆案例 | C1=1且C2=1且P≥P3且I≤中位数 | 少量介入带来高价值改变 |
+
+> 注意区分**第二轮完成率**与**已确认认可率**，二者分母不同，混用是常见错误。
+
+### 4.2 参考值（实验性）/ Reference Score (Experimental)
+
+在完成P标定前，以下映射仅用于**个人纵向观察的方向性参考**，不用于跨人比较：
+
+```
+任务事件参考值 = P分层分 / I
+P1/P2→1, P3→2, P4→3, P5→4
 ```
 
-## 快速开始
+此映射是启发式，不是测量学结论。报告中必须同时展示原始P分布。
 
-```bash
-# 克隆仓库
-git clone https://github.com/tri-chinaroot/hclr.git
-cd hclr
+### 4.3 周期与缺失处理 / Periods & Missing Data
 
-# 使用记录工具（CLI）
-python3 app/hclr.py init
-python3 app/hclr.py task add "撰写会员体系分析报告" --domain 咨询
-python3 app/hclr.py draft freeze <task_id>   # 冻结 AI 初稿 O0
-python3 app/hclr.py intervene <task_id> "补充约束：需按ABC集团现状裁剪" --kind constraint
-python3 app/hclr.py confirm1 <task_id> adopt  # 第一轮确认
-python3 app/hclr.py confirm2 <task_id> approved  # 第二轮确认
-python3 app/hclr.py report <task_id>        # 生成报告
-```
+- 默认以自然月为观察周期，可自定义；
+- 换模型/领域/受众时标记断点；
+- 任务数<10时只展示原始记录，不展示趋势；
+- 待确认不计0；提供乐观（全部视为认可）/保守（全部视为未认可）上下界；
+- 待确认比例>30%时，第二轮相关指标标注"不可靠"。
 
-详见 [`app/README.md`](app/README.md)。
+### 4.4 排行榜条件（仅社区场景）/ Leaderboard Conditions
 
-## 文档
+跨人比较**只在严格条件下**允许：统一模型与版本、统一任务集与初始输出、统一介入量口径、改变范围由第三方或社区盲评、完整交互记录可审计、禁止选择性记录（必须包含失败任务）、异常结果复核。
 
-- [方法说明 METHOD.md](METHOD.md) — 什么是 HCLR、如何记录
-- [计分规则 SCORING.md](SCORING.md) — 指标、公式、口径
-- [局限性 LIMITATIONS.md](LIMITATIONS.md) — 必须知道的边界
-- [隐私政策 PRIVACY.md](PRIVACY.md) — 数据归属与安全
-- [产品愿景 PRODUCT_VISION.md](PRODUCT_VISION.md) — 自我评估 → 厂商应用 → 排行榜
+## 5. 重要边界 / Important Boundaries
 
-## 状态
+- HCLR是**自我评估参考**，不是客观真理标准；
+- 不是人的一般智力或总体认知水平量表；
+- 不是AI使用能力的唯一评价方法；
+- 主要用于同一使用者的**纵向自我比较**，不宜作为跨人绝对排名；
+- 不宜作为招聘、淘汰、绩效排名等高风险裁决工具；
+- 曲线上升只能作为稀疏介入能力变化的**参考**，不能直接声称证明认知水平提升；曲线下降可能来自任务变难、模型变化或受众变化。
 
-- 当前版本：0.1（方法草案 + CLI 原型）
-- 定位：**自我评估方法**，不是学术量表，不用于招聘、淘汰或跨人绝对排名
-- 仓库当前为私有，稳定后可按作者决定公开
+### 已知局限 / Known Limitations
 
-## License
+1. **P1–P5未标定**：顺序等级，非等距量表；
+2. **分母不测认知投入**：介入量只测显性形式；
+3. **共同方法偏差**：所有评分由同一使用者完成，第二轮是使用者对反馈的解读；
+4. **选择偏差**：成功/重要任务更容易被补录第二轮；
+5. **无法完全归因**：O0→O1的改变不必然全部由人类介入造成（模型随机性）；
+6. **可博弈性**：使用者可能通过选任务、压缩表达、选择性记录虚高分数。
 
-见 [LICENSE](LICENSE)。（待作者确定开源协议）
+## 6. 隐私与数据 / Privacy & Data
+
+- 记录可能包含商业机密、个人信息、客户数据；
+- **本地优先**：记录默认保存在使用者本地，不上传任何服务器；
+- 数据属于使用者，可随时删除、导出；
+- 任何聚合、匿名化或第三方使用（如模型厂商优化）需单独授权协议，明确用途、期限、可撤销性与贡献归因；
+- 模型厂商应区分：即时"好/坏"按钮 ≠ 第一轮采纳确认 ≠ 第二轮受众结果确认；不能把介入后的优秀成果全部归因于模型。
+
+## 7. 应用场景 / Applications
+
+| 层级 | 场景 | 说明 |
+|---|---|---|
+| 个人 | 自我观察与复盘 | 当前主要用途 |
+| 组织 | 团队协作方式比较 | 需统一模型/任务条件，不作绩效裁决 |
+| 厂商 | 高杠杆介入识别 | 从重复出现的人类介入中发现模型盲点、评测项与训练材料（第二层应用） |
+| 社区 | 排行榜/挑战 | 需严格条件控制，见4.4 |
+
+## 8. 授权 / License
+
+本仓库（含文档与代码）采用**自定义授权**：
+
+- **非商业使用**：免费，但使用/引用/修改前需在GitHub仓库**开Issue告知**作者，并在文档中**署名**；
+- **商业使用**：需另行与作者协商授权；
+- 适用范围：本仓库全部内容（README、Schema、代码等）。
+
+**Non-commercial use is free, but you must open a GitHub Issue to notify the author and credit the author in your documentation. Commercial use requires a separate agreement with the author. This applies to all content in this repository.**
+
+---
+
+## 作者 / Author
+
+[tri-chinaroot](https://github.com/tri-chinaroot)
+
+## 版本 / Version
+
+0.1（方法草案）。后续版本将根据真实使用反馈校准字段与计分规则。

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://doi.org/10.1109/TSSC.1966.300074",
+      "title": "Howard (1966), Information Value Theory",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 2,
+      "url": "https://arxiv.org/abs/2006.14779",
+      "title": "Bansal et al. (2021), Does the Whole Exceed its Parts?",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 3,
+      "url": "https://doi.org/10.1145/3290605.3300233",
+      "title": "Amershi et al. (2019), Guidelines for Human-AI Interaction",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 4,
+      "url": "https://doi.org/10.1037/xge0000033",
+      "title": "Dietvorst et al. (2015), Algorithm Aversion",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 5,
+      "url": "https://doi.org/10.1287/mnsc.2016.2643",
+      "title": "Dietvorst et al. (2018), Overcoming Algorithm Aversion",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 6,
+      "url": "https://arxiv.org/abs/2102.09692",
+      "title": "Buçinca et al. (2021), To Trust or to Think",
+      "accessed": "2026-08-11"
+    },
+    {
+      "id": 7,
+      "url": "https://arxiv.org/abs/2203.02155",
+      "title": "Ouyang et al. (2022), Training language models to follow instructions with human feedback",
+      "accessed": "2026-08-11"
+    }
+  ]
+}

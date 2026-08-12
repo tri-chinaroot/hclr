@@ -198,6 +198,16 @@ Cross-person comparison is **only allowed under strict conditions**: unified mod
 | Model provider | High-leverage intervention discovery | Repeated human interventions reveal model blind spots, evaluation items, and training material (second-layer application) |
 | Community | Leaderboard / challenge | Strict condition control required, see 4.4 |
 
+## Original Manuscript
+
+The full method manuscript (with formulas, measurement protocol, and validation agenda):
+
+- [Original method manuscript (EN)](PAPER_EN.md)
+- [Original method manuscript (CN)](PAPER_CN.md)
+- [Source ledger](PAPER-sources.json)
+
+> The manuscript is labeled as a v0.1 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
+
 ## 8. License
 
 This repository (including documents and code) is under a **custom license**:

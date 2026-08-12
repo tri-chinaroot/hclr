@@ -272,6 +272,8 @@ $$
 
 Computing a simple arithmetic mean of single-task-event HCLR values is not recommended, because very short interventions can produce extreme values; dividing cumulative output by cumulative intervention is more stable.
 
+HCLR requires no sample-size threshold: a single task event already yields \(HCLR_j\), and the method is operational from the very first sample. Additional samples serve to form personal trends and stability observations, not to establish whether the method works.
+
 ### 4.4 Result States
 
 The second confirmation usually occurs later than the first. Each record should retain the following states:

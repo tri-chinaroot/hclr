@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use HCLR in your work, please cite this repository. Non-commercial use requires opening a GitHub Issue to notify the author and crediting the author in derivative works."
+title: "HCLR: Human Cognitive Leverage Ratio — A Method for AI Users to Assess Their Influence on Model Outputs"
+abstract: "A self-assessment method for AI users. HCLR records the process from an initial AI output (O0) through sparse human interventions (h) to a final deliverable (O1), with double confirmation (C1 adoption, C2 audience recognition)."
+authors:
+  - family-names: "tri-chinaroot"
+    given-names: ""
+    website: "https://github.com/tri-chinaroot"
+version: "0.2.0"
+date-released: "2026-08-12"
+repository-code: "https://github.com/tri-chinaroot/hclr"
+license: "LicenseRef-custom-noncommercial-notice-attribution"
+keywords:
+  - "human-ai interaction"
+  - "AI literacy"
+  - "self-assessment"
+  - "sparse intervention"
+  - "cognitive leverage"

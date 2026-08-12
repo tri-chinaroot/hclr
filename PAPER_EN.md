@@ -475,6 +475,8 @@ If the model, task, or evaluation standard changes significantly, a new observat
 
 ## 6. Method Validation
 
+> **Status note**: Sections 6 and 7 of this manuscript constitute a **validation roadmap**; empirical validation has not yet been completed. The current stage is "validation plan"; after real usage data (pilot) is collected, these sections will be rewritten as "initial validation results."
+
 As an adoptable self-assessment method, HCLR must prove that it is easy to record, easy to understand, and provides information that traditional output metrics do not. The validation focus is not to prove the formulas are universal truths, but to test whether users can use the method over time to observe their own changes.
 
 ### 6.1 Content Validity
@@ -693,6 +695,8 @@ Audience recognition may be affected by identity, power, expression style, or or
 ### 9.5 Model Changes
 
 Model upgrades can change draft quality and responsiveness to interventions. Therefore, curves must be accompanied by model version and observation period. Cross-model comparisons should re-establish baselines; historical scores cannot be carried over directly.
+
+Beyond model upgrades, regenerating the same task with the same model also involves stochastic variation. To control this counterfactual source, users can periodically run a "regenerate without intervention" control on a subset of tasks: record the difference between the model's re-generated output and O0 when no human intervention is applied. If control samples show substantial natural variation, changes in the curve should be attributed to human intervention with caution.
 
 ### 9.6 Task Differences
 

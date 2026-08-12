@@ -30,7 +30,7 @@ Generative AI has lowered the cost of content production. Research reports, busi
 
 This change creates an asymmetry worth measuring separately:
 
-\[
+$$
 10000\text{ generated content units}
 \rightarrow
 10\text{ critical judgments}
@@ -38,7 +38,7 @@ This change creates an asymmetry worth measuring separately:
 1\text{ critical challenge}
 \rightarrow
 50\%-100\%\text{ of output restructured}
-\]
+$$
 
 These numbers illustrate a pattern, not fixed ratios. They describe a structure: AI generates densely, humans intervene sparsely, and AI then performs large-scale revision based on a few interventions. The human's explicit output is small, but that output may determine whether the result is adoptable.
 
@@ -108,16 +108,16 @@ HCLR does not require completely separating model capability from outcomes. With
 
 Therefore, HCLR should be written as a conditional indicator:
 
-\[
+$$
 HCLR(u\mid m,d,T)
-\]
+$$
 
 where:
 
-- \(u\) denotes the user;
-- \(m\) denotes the model and its version;
-- \(d\) denotes the task domain;
-- \(T\) denotes the relatively stable observation period.
+- $u$ denotes the user;
+- $m$ denotes the model and its version;
+- $d$ denotes the task domain;
+- $T$ denotes the relatively stable observation period.
 
 When comparing different users, the same or comparable model environment should be used. If models differ, scores should be reported separately, not treated as a context-free personal ability ranking.
 
@@ -190,15 +190,15 @@ User adoption means that the output after intervention reaches the standard the 
 
 Define the adoption variable:
 
-\[
+$$
 A_j=
 \begin{cases}
 1,& \text{the output after the }j\text{th intervention is adopted}\\
 0,& \text{not adopted}
 \end{cases}
-\]
+$$
 
-> Note: The adoption variable \(A_j\) in early drafts is the same in meaning as the first-round confirmation \(C_{1j}\) in Section 3.5. Formal records and calculations uniformly use \(C_{1j}\); \(A_j\) is no longer used separately.
+> Note: The adoption variable $A_j$ in early drafts is the same in meaning as the first-round confirmation $C_{1j}$ in Section 3.5. Formal records and calculations uniformly use $C_{1j}$; $A_j$ is no longer used separately.
 
 Graded values from 0 to 1 can also be used to represent partial adoption, adoption after revision, and direct adoption. In the early stage of the method, however, binary recording more easily forms a consistent standard.
 
@@ -208,21 +208,21 @@ HCLR's effectiveness judgment is completed by the user at two points in time; no
 
 The first confirmation occurs after output generation and intervention are complete. The user confirms whether they are willing to adopt or deliver the output:
 
-\[
+$$
 C_{1j}=
 \begin{cases}
 1,& \text{the user confirms adoption}\\
 0,& \text{the user does not adopt}
 \end{cases}
-\]
+$$
 
 The second confirmation occurs after the output reaches the target audience and generates feedback. Still completed by the user based on observed feedback, it confirms whether the audience recognizes the output:
 
-\[
+$$
 C_{2j}\in\{1,0,\varnothing\}
-\]
+$$
 
-Here, 1 means the user confirms audience recognition, 0 means the user confirms audience non-recognition, and \(\varnothing\) means not yet delivered or insufficient feedback. Pending is not failure and must not be counted as 0.
+Here, 1 means the user confirms audience recognition, 0 means the user confirms audience non-recognition, and $\varnothing$ means not yet delivered or insufficient feedback. Pending is not failure and must not be counted as 0.
 
 The target audience may be clients, supervisors, partner teams, users, reviewers, or the public. "Recognition" does not require the audience to agree with everything; it means the output meets the threshold for entering the next action, communication, or decision. The user's ability to understand audience concerns and make AIGC outputs meet that standard is itself part of AI application capability.
 
@@ -240,11 +240,11 @@ HCLR needs to record how much of the output the intervention changed, and whethe
 | P4 | Plan change | Changing main recommendations, plan ordering, delivery structure, or action direction |
 | P5 | Framework change | Changing the problem definition, analytical framework, or the organization of the whole output |
 
-Define the scope of change of the \(j\)th task event as:
+Define the scope of change of the $j$th task event as:
 
-\[
+$$
 P_j\in\{1,2,3,4,5\}
-\]
+$$
 
 Scope of change is not equal to the number of rewritten characters. Deleting one erroneous core assumption may change an entire conclusion; rewriting hundreds of words of wording may still be P1. Scoring should be based on the role of the final output in the task, not on the size of the textual difference.
 
@@ -268,16 +268,16 @@ Among the metrics above, the number of independent semantic propositions is clos
 
 > **Experimental formula**: P1–P5 is an ordinal scale and should not be used as an interval value in calculations before calibration; the metric for I_j (judgments / characters / turns) must be declared when recording. For formal use, follow the metric specifications in the repository README.
 
-The first confirmation measures how much adoptable output change the user produces per unit of intervention. For the \(j\)th task event:
+The first confirmation measures how much adoptable output change the user produces per unit of intervention. For the $j$th task event:
 
-\[
+$$
 \boxed{
 HCLR^{(1)}_j=
 \frac{C_{1j}\cdot P_j}{I_j}
 }
-\]
+$$
 
-where \(C_{1j}\) is whether the user adopts, \(P_j\) is the scope of change, and \(I_j\) is the intervention information amount. If the user does not adopt, the first confirmation fails and that intervention produces no adoption leverage.
+where $C_{1j}$ is whether the user adopts, $P_j$ is the scope of change, and $I_j$ is the intervention information amount. If the user does not adopt, the first confirmation fails and that intervention produces no adoption leverage.
 
 ### 4.2 Second Round: Recognition HCLR
 
@@ -285,14 +285,14 @@ where \(C_{1j}\) is whether the user adopts, \(P_j\) is the scope of change, and
 
 After the output reaches the audience, the user completes the second confirmation based on actual feedback:
 
-\[
+$$
 \boxed{
 HCLR^{(2)}_j=
 \frac{C_{1j}\cdot C_{2j}\cdot P_j}{I_j}
 }
-\]
+$$
 
-The second confirmation applies only to records that have received audience feedback. If the user confirms audience recognition, \(C_{2j}=1\); if non-recognition is confirmed, \(C_{2j}=0\). Both confirmations are completed by the user; the difference is that the first is based on the user's own adoption decision, and the second is based on feedback after the output enters a real audience scenario.
+The second confirmation applies only to records that have received audience feedback. If the user confirms audience recognition, $C_{2j}=1$; if non-recognition is confirmed, $C_{2j}=0$. Both confirmations are completed by the user; the difference is that the first is based on the user's own adoption decision, and the second is based on feedback after the output enters a real audience scenario.
 
 ### 4.3 Pending State
 
@@ -301,7 +301,7 @@ The second confirmation usually occurs later than the first. Each record should 
 | State | First round | Second round | Meaning |
 |---|---:|---:|---|
 | S0 not adopted | 0 | not entered | Output did not meet the user's adoption standard |
-| S1 adopted, pending | 1 | \(\varnothing\) | Adopted, but insufficient audience feedback yet |
+| S1 adopted, pending | 1 | $\varnothing$ | Adopted, but insufficient audience feedback yet |
 | S2 adopted, not recognized | 1 | 0 | User confirms audience non-recognition |
 | S3 adopted and recognized | 1 | 1 | Both confirmations passed |
 
@@ -323,41 +323,41 @@ Intervention information amount and intervention time answer different questions
 
 First-round information leverage:
 
-\[
+$$
 HCLR^{(1)}_{I,j}=
 \frac{C_{1j}\cdot P_j}{I_{semantic,j}}
-\]
+$$
 
 Second-round information leverage:
 
-\[
+$$
 HCLR^{(2)}_{I,j}=
 \frac{C_{1j}\cdot C_{2j}\cdot P_j}{I_{semantic,j}}
-\]
+$$
 
-Time leverage replaces the denominator with intervention time \(T_j\). Information leverage answers "how much adoptable output change does one unit of explicit judgment produce," while time leverage answers "how much adoptable change is produced per unit of time."
+Time leverage replaces the denominator with intervention time $T_j$. Information leverage answers "how much adoptable output change does one unit of explicit judgment produce," while time leverage answers "how much adoptable change is produced per unit of time."
 
 ### 4.5 Personal-Level Aggregation
 
-For user \(u\) with \(n\) task events within the same model, similar tasks, and observation period, the first-round cumulative HCLR is:
+For user $u$ with $n$ task events within the same model, similar tasks, and observation period, the first-round cumulative HCLR is:
 
-\[
+$$
 \boxed{
 HCLR^{(1)}(u\mid m,d,T)=
 \frac{\sum_{j=1}^{n}C_{1j}\cdot P_j}
 {\sum_{j=1}^{n}I_j}
 }
-\]
+$$
 
-The second-round cumulative HCLR is computed only on the set \(J_2\) of records that have completed the second confirmation:
+The second-round cumulative HCLR is computed only on the set $J_2$ of records that have completed the second confirmation:
 
-\[
+$$
 \boxed{
 HCLR^{(2)}(u\mid m,d,T)=
 \frac{\sum_{j\in J_2}C_{1j}\cdot C_{2j}\cdot P_j}
 {\sum_{j\in J_2}I_j}
 }
-\]
+$$
 
 Computing a simple arithmetic mean of single-task-event HCLR values is not recommended, because very short interventions can produce extreme values. Dividing cumulative effective change by cumulative intervention amount is more stable. When reporting second-round HCLR, the number of second-round-confirmed samples and the pending ratio must also be reported.
 
@@ -365,21 +365,21 @@ Computing a simple arithmetic mean of single-task-event HCLR values is not recom
 
 The primary use of HCLR is within-user longitudinal self-assessment [11], not cross-person absolute ranking. Compute by week, month, quarter, or fixed task batch:
 
-\[
+$$
 HCLR^{(1)}_1,HCLR^{(1)}_2,\ldots,HCLR^{(1)}_T
-\]
+$$
 
-\[
+$$
 HCLR^{(2)}_1,HCLR^{(2)}_2,\ldots,HCLR^{(2)}_T
-\]
+$$
 
 The two curves respectively represent changes in the user's efficiency in converting AIGC outputs into "outputs I am willing to adopt" and "outputs confirmed as recognized through audience feedback." A second-round confirmation rate can also be reported:
 
-\[
+$$
 VCR_t=
 \frac{\sum_{j\in J_{2,t}}C_{1j}C_{2j}}
 {\sum_{j\in J_{2,t}}C_{1j}}
-\]
+$$
 
 A rising curve can serve as a reference for improvement in sparse intervention capability, but it cannot be interpreted independently of context. Model version, task domain, task difficulty, target audience, and intervention amount unit should remain relatively stable. If these conditions change, a new observation interval should begin or the curve should be clearly marked.
 
@@ -399,11 +399,11 @@ The three judgments are counted together as 3 intervention semantic propositions
 
 The first-round confirmation value is:
 
-\[
+$$
 HCLR_I^{(1)}=\frac{1\times4}{3}=1.33
-\]
+$$
 
-If, after the output is submitted to the investment committee, the user confirms from the meeting result that the plan enters the pilot stage, the second-round state is S3 and a corresponding \(HCLR_I^{(2)}\) is formed. If the meeting has not yet occurred, the state is S1, not S2. This value has no intrinsic cross-domain meaning; it is meaningful only when compared under the same scoring rules, similar tasks, and the same model environment.
+If, after the output is submitted to the investment committee, the user confirms from the meeting result that the plan enters the pilot stage, the second-round state is S3 and a corresponding $HCLR_I^{(2)}$ is formed. If the meeting has not yet occurred, the state is S1, not S2. This value has no intrinsic cross-domain meaning; it is meaningful only when compared under the same scoring rules, similar tasks, and the same model environment.
 
 ## 5. Lightweight Measurement Protocol
 
@@ -612,17 +612,17 @@ Human feedback has been used to improve models' adherence to user intent, for ex
 
 For model providers, one high-value record should contain:
 
-\[
+$$
 O_0\rightarrow h\rightarrow O_1\rightarrow C_1\rightarrow C_2
-\]
+$$
 
 where:
 
-- \(O_0\): the model's original output;
-- \(h\): the user's sparse intervention;
-- \(O_1\): the output after intervention;
-- \(C_1\): the user's adoption confirmation;
-- \(C_2\): the user's second confirmation based on audience feedback.
+- $O_0$: the model's original output;
+- $h$: the user's sparse intervention;
+- $O_1$: the output after intervention;
+- $C_1$: the user's adoption confirmation;
+- $C_2$: the user's second confirmation based on audience feedback.
 
 Recording only the final output would wrongly attribute the human's critical judgments to the model. Preserving the original output and the intervention difference makes it possible to identify where the model needs a few human corrections, and which corrections repeatedly move results from unusable to usable.
 
@@ -732,7 +732,7 @@ This paper therefore positions HCLR as a limited but useful method. It does not 
 
 This paper proposes the Human Cognitive Leverage Ratio for assessing the sparse intervention capability of AI users. Its basic process is:
 
-\[
+$$
 AI\text{ dense generation}
 \rightarrow
 human\text{ few critical interventions}
@@ -744,27 +744,27 @@ user\text{ first confirmation of adoption}
 output\text{ reaches audience}
 \rightarrow
 user\text{ second confirmation of recognition}
-\]
+$$
 
 The first-round cumulative HCLR is:
 
-\[
+$$
 \boxed{
 HCLR^{(1)}(u\mid m,d,T)=
 \frac{\sum_{j=1}^{n}C_{1j}\cdot P_j}
 {\sum_{j=1}^{n}I_j}
 }
-\]
+$$
 
 The second-round cumulative HCLR is computed on records with audience feedback:
 
-\[
+$$
 \boxed{
 HCLR^{(2)}(u\mid m,d,T)=
 \frac{\sum_{j\in J_2}C_{1j}\cdot C_{2j}\cdot P_j}
 {\sum_{j\in J_2}I_j}
 }
-\]
+$$
 
 By continuously recording the two values on a fixed schedule, users can form a personal trend curve and observe whether they can produce more adoptable outputs with fewer, more critical interventions. The curve is a reference for sparse intervention capability in AIGC usage contexts, not a measure of general cognitive level or a permanent ability score.
 

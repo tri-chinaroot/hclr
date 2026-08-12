@@ -206,7 +206,15 @@ The full method manuscript (with formulas, measurement protocol, and validation 
 - [Original method manuscript (CN)](PAPER_CN.md)
 - [Source ledger](PAPER-sources.json)
 
-> The manuscript is labeled as a v0.1 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
+> The manuscript is labeled as a v0.2 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
+
+## FAQ
+
+- **Who is HCLR for?** Anyone who regularly uses AI to produce deliverables and wants to observe how their judgments influence model outputs.
+- **How do I start?** Record task events (O0 → interventions → O1 → C1 → C2) over 2–4 weeks of real work. See the manuscript for the full protocol.
+- **What does a score mean?** A reference value for your explicit intervention leverage under a specific model, task, and period. It is not a general intelligence score.
+- **Is HCLR a validated measurement?** No. P1–P5 is an ordinal scale awaiting calibration; all scores are experimental references.
+- **Can it be used for hiring or performance decisions?** Not recommended until reliability, validity, and gaming resistance are established.
 
 ## 8. License
 

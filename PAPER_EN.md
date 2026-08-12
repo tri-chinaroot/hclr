@@ -2,7 +2,7 @@
 
 ## From a Few Critical Judgments to Adoptable AIGC Outputs
 
-> **Document statement**: This is the original method manuscript of HCLR (v0.1), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: the intervention amount I defaults to token counts (or character counts) in automated recording scenarios, measuring explicit intervention expression leverage rather than the cognitive investment required to form judgments. Readers should not interpret any numerical value as a validated measurement. For the latest and simplest description of the method, see the repository [README](README.md).
+> **Document statement**: This is the finalized method manuscript of HCLR (v0.4), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: the intervention amount I defaults to token counts (or character counts) in automated recording scenarios, measuring explicit intervention expression leverage rather than the cognitive investment required to form judgments. Readers should not interpret any numerical value as a validated measurement. Empirical data are being accumulated continuously in conversation scenarios (see [examples/PILOT_CASE_EN.md](examples/PILOT_CASE_EN.md)). For the latest and simplest description of the method, see the repository [README](README.md).
 >
 > Version: 0.4 (method manuscript, fourth-draft original)
 >

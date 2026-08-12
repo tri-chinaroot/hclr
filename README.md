@@ -186,6 +186,10 @@ Cross-person comparison is **only allowed under strict conditions**: unified mod
 | Model provider | High-leverage intervention discovery | Repeated human interventions reveal model blind spots, evaluation items, and training material (second-layer application) |
 | Community | Leaderboard / challenge | Strict condition control required, see 4.4 |
 
+## Companion Method: TOA Questioning
+
+HCLR measures "your intervention leverage on AI output"; [TOA Questioning Method](https://github.com/tri-chinaroot/toa-questioning) solves "how to **elicit** your intent" — the AI asks one question at a time with fast A/B/C convergence. Use them together: TOA to elicit intent, HCLR to measure the effect of each intervention round. A TOA record (TOA-<project>-<timestamp>.md) can itself serve as an HCLR task event.
+
 ## Original Manuscript
 
 The full method manuscript (with formulas, measurement protocol, and validation agenda):

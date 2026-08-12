@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# HCLR 本地数据（默认存储位置）
+~/.hclr/
+.hclr/
+
+# 导出文件
+hclr-export.json
+*.db
+
+# macOS
+.DS_Store

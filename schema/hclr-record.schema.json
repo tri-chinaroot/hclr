@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/tri-chinaroot/hclr/schema/hclr-record.schema.json",
+  "title": "HCLR任务事件记录",
+  "description": "HCLR（人类认知杠杆率）任务—成果转换事件记录Schema。基本计算单位为任务事件，单条介入不单独作为计算单位。",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "domain",
+    "model",
+    "audience",
+    "O0",
+    "O1",
+    "interventions",
+    "I",
+    "I_metric",
+    "P",
+    "C1",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "task_id": {
+      "type": "string",
+      "description": "任务唯一标识，如 hclr-20260812-001"
+    },
+    "title": {
+      "type": "string",
+      "description": "任务名称（可选）"
+    },
+    "domain": {
+      "type": "string",
+      "description": "任务领域，如 咨询/产品/编程/写作"
+    },
+    "model": {
+      "type": "string",
+      "description": "模型及版本，如 deepseek-v4 / gpt-5.6"
+    },
+    "audience": {
+      "type": "string",
+      "description": "目标受众类型，如 部门领导/客户/同事/公开读者"
+    },
+    "O0": {
+      "type": "string",
+      "description": "原始生成，冻结保存，不可覆盖"
+    },
+    "O1": {
+      "type": "string",
+      "description": "介入后最终成果"
+    },
+    "interventions": {
+      "type": "array",
+      "description": "人类介入列表",
+      "items": {
+        "type": "object",
+        "required": ["seq", "text"],
+        "properties": {
+          "seq": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "介入序号"
+          },
+          "text": {
+            "type": "string",
+            "description": "介入内容"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "fact_correction",
+              "goal_adjustment",
+              "constraint",
+              "conclusion_revision",
+              "framework_change",
+              "style_adaptation",
+              "other"
+            ],
+            "description": "介入类型"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "I": {
+      "type": "number",
+      "minimum": 0,
+      "description": "介入量数值"
+    },
+    "I_metric": {
+      "type": "string",
+      "enum": ["judgments", "chars", "turns"],
+      "description": "介入量口径：判断数/字数/次数"
+    },
+    "P": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "改变范围等级 P1-P5（顺序等级，非等距）"
+    },
+    "P_note": {
+      "type": "string",
+      "description": "改变范围判断依据（可选）"
+    },
+    "C1": {
+      "type": "integer",
+      "enum": [0, 1],
+      "description": "第一轮确认：1=已采纳，0=未采纳"
+    },
+    "C2": {
+      "type": ["integer", "null"],
+      "enum": [1, 0, null],
+      "description": "第二轮确认：1=认可，0=未认可，null=待确认（默认）"
+    },
+    "C2_note": {
+      "type": "string",
+      "description": "第二轮确认依据（真实受众反馈描述）"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["S0", "S1", "S2", "S3"],
+      "description": "结果状态：S0未采用 / S1已采用待确认 / S2已采用未获认可 / S3已采用并获认可"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "confirmed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "第一轮确认时间"
+    },
+    "c2_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "第二轮确认时间"
+    },
+    "c2_deadline": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "第二轮计划回访时间（可选）"
+    },
+    "period": {
+      "type": "string",
+      "description": "所属观察周期，如 2026-08"
+    }
+  }
+}

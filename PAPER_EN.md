@@ -2,7 +2,7 @@
 
 ## From a Few Critical Judgments to Adoptable AIGC Outputs
 
-> **Document statement**: This is the original method manuscript of HCLR (v0.1), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: P1–P5 is an ordinal scale that has not yet been calibrated, and the intervention amount metric must be declared when recording. Readers should not interpret any numerical value as a validated measurement. For the latest and simplest description of the method, see the repository [README](README.md).
+> **Document statement**: This is the original method manuscript of HCLR (v0.1), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: P1–P5 is an ordinal scale that has not yet been calibrated, and the intervention amount I defaults to token counts (or character counts) in automated recording scenarios, measuring explicit intervention expression leverage rather than the cognitive investment required to form judgments. Readers should not interpret any numerical value as a validated measurement. For the latest and simplest description of the method, see the repository [README](README.md).
 >
 > Version: 0.1 (method manuscript, second-draft original)
 >
@@ -236,7 +236,9 @@ Intervention amount represents the explicit input the user provides to change th
 - Number of intervention turns;
 - Review and expression time.
 
-Among these, the number of independent semantic propositions is closest to "information amount." For example, "the data caliber is inconsistent, so market sizes cannot be compared directly" contains a factual judgment and an inferential judgment, and can be counted as two related propositions. To reduce annotation cost, practical applications may first use character or token counts as approximations.
+**Automated default metric**: In automated recording scenarios, the intervention amount I defaults to the token count (or character count) of the intervention text. Rationale: objective, automatically measurable, reproducible, and zero annotation burden for the user. Boundary: token count measures expression length; it does not include the reviewing, searching, fact-checking, and reasoning costs required to form judgments, nor does it equal the number of independent judgments. Therefore, token-based HCLR reflects "explicit intervention expression leverage," not complete cognitive investment. Because different models use different tokenizers, the tokenizer metric must be declared when comparing across models.
+
+Among the metrics above, the number of independent semantic propositions is closest to "information amount." For example, "the data caliber is inconsistent, so market sizes cannot be compared directly" contains a factual judgment and an inferential judgment, and can be counted as two related propositions. In research scenarios requiring a semantic metric, judgment counts or semantic proposition counts can still be used; the two metric families must be declared in records and must not be mixed.
 
 ## 4. Computing HCLR
 
@@ -284,6 +286,8 @@ The second confirmation usually occurs later than the first. Each record should 
 S1 must not be merged with S2; otherwise, outputs not yet delivered or with long feedback cycles would be wrongly counted as failures. Second-round feedback should be backfilled to the task batch of the original output, not to a new task batch created when feedback is received.
 
 ### 4.4 Information Leverage and Time Leverage
+
+> **Metric note**: In automated recording scenarios, I_semantic defaults to intervention token counts (or character counts); in manual recording scenarios, independent judgment counts or semantic proposition counts can be used. The two metric families must not be mixed within the same curve.
 
 Intervention information amount and intervention time answer different questions; they should not be forced into a single denominator. Both the first and second rounds can compute information leverage and time leverage separately.
 

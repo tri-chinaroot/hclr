@@ -88,8 +88,8 @@ Three metrics are supported; declare which one is used:
 
 | Metric | Definition | Note |
 |---|---|---|
-| Judgments | Number of independent semantic judgments / key opinions | Recommended default |
-| Chars | Total characters of intervention text | Easy to auto-count |
+| Tokens / chars | Token or character count of intervention text | **Default in automated recording** (objective, zero annotation burden) |
+| Judgments | Number of independent semantic judgments / key opinions | Default in manual recording |
 | Turns | Number of intervention turns | Simplest |
 
 > **Important boundary**: explicit intervention amount is not equal to total cognitive investment (reviewing, searching, fact-checking, reasoning costs are not counted). HCLR measures "explicit intervention leverage," not a complete cognitive ability score.

@@ -208,6 +208,13 @@ The full method manuscript (with formulas, measurement protocol, and validation 
 
 > The manuscript is labeled as a v0.2 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
 
+## Empirical Pilot
+
+HCLR is being validated with real conversation data (task events from AI-assistant dialogues; automated statistics, one-line user confirmation).
+
+- [Pilot case (EN)](examples/PILOT_CASE_EN.md)
+- [Pilot case (CN)](examples/PILOT_CASE_CN.md)
+
 ## FAQ
 
 - **Who is HCLR for?** Anyone who regularly uses AI to produce deliverables and wants to observe how their judgments influence model outputs.

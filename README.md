@@ -190,8 +190,8 @@ Cross-person comparison is **only allowed under strict conditions**: unified mod
 
 The full method manuscript (with formulas, measurement protocol, and validation agenda):
 
-- [Original method manuscript (EN)](PAPER_EN.md)
-- [Original method manuscript (CN)](PAPER_CN.md)
+- [Method manuscript (EN)](PAPER_EN.md)
+- [Method manuscript (CN)](PAPER_CN.md)
 - [Source ledger](PAPER-sources.json)
 
 > The manuscript is labeled as a v0.4 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
@@ -229,4 +229,4 @@ See [LICENSE](LICENSE) for details.
 
 ## Version
 
-0.1 (method draft). Future versions will calibrate fields and scoring rules based on real usage feedback.
+0.4 (finalized method manuscript, 2026-08-12). Empirical pilot data continue to accumulate in real conversations; see [examples/PILOT_CASE_EN.md](examples/PILOT_CASE_EN.md).

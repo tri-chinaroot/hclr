@@ -42,6 +42,24 @@
       "url": "https://arxiv.org/abs/2203.02155",
       "title": "Ouyang et al. (2022), Training language models to follow instructions with human feedback",
       "accessed": "2026-08-11"
+    },
+    {
+      "id": 8,
+      "url": "https://doi.org/10.1037/0021-9010.88.5.879",
+      "title": "Podsakoff et al. (2003), Common Method Biases in Behavioral Research",
+      "accessed": "2026-08-12"
+    },
+    {
+      "id": 9,
+      "url": "https://doi.org/10.1016/j.tics.2016.07.002",
+      "title": "Risko & Gilbert (2016), Cognitive Offloading",
+      "accessed": "2026-08-12"
+    },
+    {
+      "id": 10,
+      "url": "https://doi.org/10.1093/acprof:oso/9780195152968.001.0001",
+      "title": "Singer & Willett (2003), Applied Longitudinal Data Analysis",
+      "accessed": "2026-08-12"
     }
   ]
 }

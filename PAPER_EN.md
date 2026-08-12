@@ -479,7 +479,6 @@ For each task, save:
 - First confirmation;
 - Second confirmation status and time;
 - Second-round feedback basis category;
-- Scope of change rating;
 - Intervention amount and time.
 
 To reduce privacy risk, study data can retain only anonymized text, intervention types, and confirmation states. Real client names, audience identities, and full feedback are not necessary data for HCLR.

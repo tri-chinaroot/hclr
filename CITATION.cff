@@ -6,7 +6,7 @@ authors:
   - family-names: "tri-chinaroot"
     given-names: ""
     website: "https://github.com/tri-chinaroot"
-version: "0.3.0"
+version: "0.4.0"
 date-released: "2026-08-12"
 repository-code: "https://github.com/tri-chinaroot/hclr"
 license: "LicenseRef-custom-noncommercial-notice-attribution"

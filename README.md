@@ -194,7 +194,7 @@ The full method manuscript (with formulas, measurement protocol, and validation 
 - [Original method manuscript (CN)](PAPER_CN.md)
 - [Source ledger](PAPER-sources.json)
 
-> The manuscript is labeled as a v0.3 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
+> The manuscript is labeled as a v0.4 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
 
 ## Empirical Pilot
 

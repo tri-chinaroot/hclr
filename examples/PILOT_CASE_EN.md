@@ -34,9 +34,9 @@ After publishing the HCLR method manuscript, a **conversation-embedded collectio
 |---|---|---|---|---|---|---|---|
 | pilot-001 | Empirical design | 209 | 28 | 7.46 | partial | S1 | "OK, but I hope every conversation can be auto-counted without extra operations" |
 | pilot-002 | Conceptual clarification | 134 | 60 | 2.23 | adopt | S1 | "Correction: you are not the model being used; the bound large model is …" |
-| pilot-003 | HCLR revision & finalization | 8650 | 214 | 40.42 | pending | S0 | "There are no auxiliary indicators anymore; P1–P5 as integers is fundamentally wrong." |
-| pilot-004 | TOA release & promotion | 6424 | 385 | 16.69 | pending | S0 | "Keep the same details. Also, my goal is that users can freely use this Skills…" |
-| pilot-005 | Method form analysis | 2858 | 88 | 32.48 | pending | S0 | "Are Skills usually single-shot? But HCLR needs statistics on every conversation…" |
+| pilot-003 | HCLR revision & finalization | 8650 | 214 | 40.42 | adopt | S1 | "There are no auxiliary indicators anymore; P1–P5 as integers is fundamentally wrong." |
+| pilot-004 | TOA release & promotion | 6424 | 385 | 16.69 | adopt | S1 | "Keep the same details. Also, my goal is that users can freely use this Skills…" |
+| pilot-005 | Method form analysis | 2858 | 88 | 32.48 | adopt | S1 | "Are Skills usually single-shot? But HCLR needs statistics on every conversation…" |
 
 ## Current Snapshot
 
@@ -46,7 +46,7 @@ HCLR = ΣO / ΣI = 18275 / 775 = 23.58
 Numerator O (model output chars total): 18275 | avg per task: 3655
 Denominator I (intervention chars total, excluding task description): 775 | avg per task: 155
 Result states:
-  Post-intervention adoption rate: 2/5 = 40% (pilot-003/004/005 pending C1)
+  Post-intervention adoption rate: 5/5 = 100%
   Second confirmation: none yet (outputs not yet used in practice)
 ```
 

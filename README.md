@@ -140,16 +140,19 @@ Three metrics are supported; declare which one is used:
 
 > Distinguish **second-round completion rate** from **confirmed recognition rate** — they have different denominators; mixing them is a common mistake.
 
-### 4.2 Reference Score (Experimental)
+### 4.2 HCLR Core Indicator
 
-Before P calibration, the following mapping is only for **directional personal longitudinal observation**, not for cross-person comparison:
-
-```
-Task event reference = P tier / I
-P1/P2→1, P3→2, P4→3, P5→4
+```text
+HCLR = total model output tokens (or chars) / total user intervention tokens (or chars)
+Personal aggregation: HCLR(u|m,d,T) = ΣO / ΣI
 ```
 
-This mapping is heuristic, not a psychometric conclusion. Reports must always show the raw P distribution alongside.
+- **Numerator O**: total model output tokens within the task event (including O0, O1, and intermediate rounds);
+- **Denominator I**: total user intervention tokens (**excluding the initial task description**; only feedback/corrections/constraints/direction adjustments to the output count);
+- Double confirmation (C1/C2) and P1–P5 are **auxiliary indicators** (adoption rate, recognition rate, P distribution) and do not enter the formula;
+- P1–P5 is an ordinal scale, uncalibrated, used for descriptive statistics only.
+
+> This indicator measures the leverage relationship of "output scale / intervention scale"; it does not measure output quality, cognitive investment, or social recognition. Read it together with the auxiliary indicators.
 
 ### 4.3 Periods & Missing Data
 

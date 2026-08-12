@@ -67,7 +67,7 @@ The basic unit is a **task event**: one AI collaboration task from original gene
 - `task_id`, `domain`, `model` (model and version), `audience` (audience type)
 - `O0` (original output, frozen and immutable), `O1` (final output)
 - `interventions[]` (list: text, type, timestamp)
-- `I` (intervention amount), `P` (scope of change P1–P5)
+- `I` (intervention amount)
 - `C1` (0/1), `C2` (1/0/pending), `C2_note` (basis for confirmation)
 - Timestamps (created / confirmed / second confirmation)
 
@@ -94,19 +94,7 @@ Three metrics are supported; declare which one is used:
 
 > **Important boundary**: explicit intervention amount is not equal to total cognitive investment (reviewing, searching, fact-checking, reasoning costs are not counted). HCLR measures "explicit intervention leverage," not a complete cognitive ability score.
 
-### 3.5 Scope of Change (P1–P5)
-
-| Level | Meaning | Example |
-|---|---|---|
-| P1 | Local wording, fact, or single-item change | Fixing a typo, adding a data point |
-| P2 | One module, major paragraph, or one argument changed | Rewriting one argument |
-| P3 | Multiple major contents or core conclusions changed | Adjusting the conclusion direction |
-| P4 | Overall plan, main recommendation, or delivery structure changed | Restructuring the deliverable |
-| P5 | Problem definition, analytical framework, or final direction changed | Redefining the problem |
-
-> **Important**: P1–P5 is an ordinal scale, not a validated interval scale. Before calibration, P should be reported as a categorical variable and should not directly enter ratio calculations.
-
-### 3.6 Double Confirmation
+### 3.5 Double Confirmation
 
 **First confirmation C1** (generation stage): whether the user adopts the result — `1` adopted / `0` not adopted.
 
@@ -127,7 +115,7 @@ Three metrics are supported; declare which one is used:
 
 ## 4. Scoring & Reporting
 
-### 4.1 Companion Metrics
+### 4.1 Result-State Statistics
 
 | Metric | Definition | Note |
 |---|---|---|
@@ -136,7 +124,6 @@ Three metrics are supported; declare which one is used:
 | Second-round completion rate | With C2 / C1=1 tasks | Feedback backfill completeness |
 | Confirmed recognition rate | C2=1 / tasks with C2 | Recognition rate within confirmed samples |
 | Average intervention amount | ΣI / number of tasks | Intervention cost per task |
-| High-leverage cases | C1=1, C2=1, P≥P3, I≤median | Few interventions, high-value change |
 
 > Distinguish **second-round completion rate** from **confirmed recognition rate** — they have different denominators; mixing them is a common mistake.
 
@@ -149,10 +136,9 @@ Personal aggregation: HCLR(u|m,d,T) = ΣO / ΣI
 
 - **Numerator O**: total model output tokens within the task event (including O0, O1, and intermediate rounds);
 - **Denominator I**: total user intervention tokens (**excluding the initial task description**; only feedback/corrections/constraints/direction adjustments to the output count);
-- Double confirmation (C1/C2) and P1–P5 are **auxiliary indicators** (adoption rate, recognition rate, P distribution) and do not enter the formula;
-- P1–P5 is an ordinal scale, uncalibrated, used for descriptive statistics only.
+- Double confirmation (C1/C2) is retained as a **result-state record** (S0–S3) and does not enter the formula;
 
-> This indicator measures the leverage relationship of "output scale / intervention scale"; it does not measure output quality, cognitive investment, or social recognition. Read it together with the auxiliary indicators.
+> This indicator measures the leverage relationship of "output scale / intervention scale"; it does not measure output quality, cognitive investment, or social recognition. Read it together with the result-state statistics.
 
 ### 4.3 Periods & Missing Data
 
@@ -164,7 +150,7 @@ Personal aggregation: HCLR(u|m,d,T) = ΣO / ΣI
 
 ### 4.4 Leaderboard Conditions (Community Scenarios Only)
 
-Cross-person comparison is **only allowed under strict conditions**: unified model and version; unified task set and initial outputs; unified intervention metric; change scope blind-rated by third parties or the community; auditable full interaction records; no selective recording (failed tasks must be included); review of anomalous results.
+Cross-person comparison is **only allowed under strict conditions**: unified model and version; unified task set and initial outputs; unified intervention metric; result states confirmed by third parties or the community; auditable full interaction records; no selective recording (failed tasks must be included); review of anomalous results.
 
 ## 5. Important Boundaries
 
@@ -177,12 +163,11 @@ Cross-person comparison is **only allowed under strict conditions**: unified mod
 
 ### Known Limitations
 
-1. **P1–P5 not calibrated**: ordinal scale, not interval;
-2. **Denominator does not measure cognitive investment**: intervention amount only captures explicit form;
-3. **Common method bias**: all ratings come from the same user; C2 is the user's interpretation of feedback;
-4. **Selection bias**: successful/important tasks are more likely to receive second-round backfill;
-5. **Incomplete attribution**: the O0→O1 change is not necessarily entirely caused by human intervention (model stochasticity);
-6. **Gaming risk**: users may inflate scores by choosing tasks, compressing expressions, or selectively recording.
+1. **Denominator does not measure cognitive investment**: intervention amount only captures explicit form;
+2. **Common method bias**: all state confirmations come from the same user; C2 is the user's interpretation of feedback;
+3. **Selection bias**: successful/important tasks are more likely to receive second-round backfill;
+4. **Incomplete attribution**: the O0→O1 change is not necessarily entirely caused by human intervention (model stochasticity);
+5. **Gaming risk**: users may inflate scores by choosing tasks, compressing expressions, or selectively recording.
 
 ## 6. Privacy & Data
 
@@ -223,7 +208,7 @@ HCLR is being validated with real conversation data (task events from AI-assista
 - **Who is HCLR for?** Anyone who regularly uses AI to produce deliverables and wants to observe how their judgments influence model outputs.
 - **How do I start?** Record task events (O0 → interventions → O1 → C1 → C2) over 2–4 weeks of real work. See the manuscript for the full protocol.
 - **What does a score mean?** A reference value for your explicit intervention leverage under a specific model, task, and period. It is not a general intelligence score.
-- **Is HCLR a validated measurement?** No. P1–P5 is an ordinal scale awaiting calibration; all scores are experimental references.
+- **Is HCLR a validated measurement?** No. All current scores are experimental references; large-scale reliability and validity testing has not yet been completed.
 - **Can it be used for hiring or performance decisions?** Not recommended until reliability, validity, and gaming resistance are established.
 
 ## 8. License

@@ -18,9 +18,8 @@ After publishing the HCLR method manuscript, a **conversation-embedded collectio
 | O (numerator) | Total model output tokens (or chars) in the task event, including all generation rounds |
 | I (denominator) | Total user intervention tokens (or chars), **excluding the initial task description** |
 | HCLR | O / I (output/intervention leverage ratio) |
-| P (scope of change) | P1–P5, auxiliary indicator (describes intervention nature, not in the formula) |
-| C1 (first confirmation) | Auxiliary: adopt / partial / reject |
-| C2 (second confirmation) | Auxiliary: approved / rejected / pending |
+| C1 (first confirmation) | Result state: adopt / partial / reject |
+| C2 (second confirmation) | Result state: approved / rejected / pending |
 
 ## Process
 
@@ -31,10 +30,10 @@ After publishing the HCLR method manuscript, a **conversation-embedded collectio
 
 ## Sample Data (First 2 Tasks)
 
-| Task | Domain | O | I | HCLR (O/I) | P | C1 | State | Example intervention |
-|---|---|---|---|---|---|---|---|---|
-| pilot-001 | Empirical design | 209 | 28 | 7.46 | P4 | partial | S1 | "OK, but I hope every conversation can be auto-counted without extra operations" |
-| pilot-002 | Conceptual clarification | 134 | 60 | 2.23 | P3 | adopt | S1 | "Correction: you are not the model being used; the bound large model is …" |
+| Task | Domain | O | I | HCLR (O/I) | C1 | State | Example intervention |
+|---|---|---|---|---|---|---|
+| pilot-001 | Empirical design | 209 | 28 | 7.46 | partial | S1 | "OK, but I hope every conversation can be auto-counted without extra operations" |
+| pilot-002 | Conceptual clarification | 134 | 60 | 2.23 | adopt | S1 | "Correction: you are not the model being used; the bound large model is …" |
 
 ## Current Snapshot
 
@@ -43,16 +42,15 @@ Tasks: 2
 HCLR = ΣO / ΣI = 343 / 88 = 3.90
 Numerator O (model output chars total): 343 | avg per task: 172
 Denominator I (intervention chars total, excluding task description): 88 | avg per task: 44
-Auxiliary indicators:
+Result states:
   Post-intervention adoption rate: 100% (2/2)
-  P distribution: P3×1, P4×1
   Second confirmation: none yet (outputs not yet used in practice)
 ```
 
 ## Significance
 
 - **Zero-burden validation**: the user only answers one line of C1 at conversation close; P confirmation is one phrase;
-- **Real data**: P, I, and C1 are real conversation records, not simulated data;
+- **Real data**: O, I, and C1 are real conversation records, not simulated data;
 - **Direct paper backfill**: as data accumulates, Sections 6–7 of the manuscript move from "validation plan" to "initial validation results";
 - **Counterfactual control**: same model (DeepSeek v4 flash) and unified metric (chars) satisfy the conditions for longitudinal comparison.
 

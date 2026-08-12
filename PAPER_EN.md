@@ -2,11 +2,11 @@
 
 ## From a Few Critical Judgments to Adoptable AIGC Outputs
 
-> **Document statement**: This is the original method manuscript of HCLR (v0.1), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: P1–P5 is an ordinal scale that has not yet been calibrated, and the intervention amount I defaults to token counts (or character counts) in automated recording scenarios, measuring explicit intervention expression leverage rather than the cognitive investment required to form judgments. Readers should not interpret any numerical value as a validated measurement. For the latest and simplest description of the method, see the repository [README](README.md).
+> **Document statement**: This is the original method manuscript of HCLR (v0.1), published for dissemination, citation, and community discussion. It is not a formal peer-reviewed journal publication. All formulas and reference values herein are **experimental designs**: the intervention amount I defaults to token counts (or character counts) in automated recording scenarios, measuring explicit intervention expression leverage rather than the cognitive investment required to form judgments. Readers should not interpret any numerical value as a validated measurement. For the latest and simplest description of the method, see the repository [README](README.md).
 >
-> Version: 0.3 (method manuscript, third-draft original)
+> Version: 0.4 (method manuscript, fourth-draft original)
 >
-> Revision history: v0.1 (2026-08-12) initial manuscript; v0.2 (2026-08-12) token default metric for intervention amount, task-event unit alignment, flowcharts, glossary, and psychometric references; v0.3 (2026-08-12) core formula changed to output/intervention leverage ratio (O/I), with P and double confirmation demoted to auxiliary indicators, eliminating the psychometric problem of treating an ordinal scale directly as numerical values.
+> Revision history: v0.1 (2026-08-12) initial manuscript; v0.2 (2026-08-12) token default metric for intervention amount, task-event unit alignment, flowcharts, glossary, and psychometric references; v0.3 (2026-08-12) core formula changed to output/intervention leverage ratio (O/I); v0.4 (2026-08-12) scope-of-change P1–P5 and the auxiliary-indicator concept removed entirely; double confirmation retained as a result-state record.
 >
 > Author: tri-chinaroot
 
@@ -14,9 +14,9 @@
 
 Generative AI can quickly produce long, dense content, but a user's critical contribution to the result does not necessarily take the form of an equally large edit. In practice, a very short intervention — such as "this data only shows correlation, not causation," "why assume competitors stay put," or "this strategy ignores execution capability" — can cause the AI to reorganize most of the content and turn an unusable draft into a result the user is willing to adopt and deliver to the intended audience. This paper calls this capability the **sparse intervention capability** of AI users and proposes the Human Cognitive Leverage Ratio (HCLR) as an adoptable assessment method.
 
-HCLR does not assess general human intelligence, nor does it judge whether AIGC outputs reach some abstract objective truth. It addresses a more concrete practical question: within a given model, task domain, and relatively stable usage period, how many explicit interventions (in tokens) does a user make, and how much model output (in tokens) results? The core ratio is defined as the **output/intervention leverage ratio**: total model output tokens divided by total user intervention tokens. Double confirmation (user adoption, audience recognition based on feedback) and the scope of change P1–P5 no longer enter the formula; they are reported separately as auxiliary indicators.
+HCLR does not assess general human intelligence, nor does it judge whether AIGC outputs reach some abstract objective truth. It addresses a more concrete practical question: within a given model, task domain, and relatively stable usage period, how many explicit interventions (in tokens) does a user make, and how much model output (in tokens) results? The core ratio is defined as the **output/intervention leverage ratio**: total model output tokens divided by total user intervention tokens. This paper no longer uses a subjective scope-of-change rating (P1–P5). Double confirmation (user adoption, audience recognition based on feedback) is retained as a result-state record and does not enter the leverage computation.
 
-This paper provides the definition of HCLR, its calculation, a five-level scope of change, intervention amount recording methods, and personal-level aggregation methods, along with a lightweight measurement protocol. After continuously completing both confirmations, a user can form a personal HCLR trend curve to observe whether they can produce more adoptable outputs with fewer, more critical judgments. The data can also supplement model providers' existing instant good/bad feedback: the first confirmation records whether the result was actually adopted, and the second records whether it gained audience recognition after adoption. If the original output, sparse interventions, and revised output are all preserved, recurring high-leverage interventions can be converted into model evaluation items and training material. This paper does not claim HCLR as the only indicator of AI usage ability, nor as a permanent ability score detached from model and task contexts.
+This paper provides the definition of HCLR, its calculation, intervention amount recording methods, and personal-level aggregation methods, along with a lightweight measurement protocol. After continuously completing both confirmations, a user can form a personal HCLR trend curve to observe whether they can produce more adoptable outputs with fewer, more critical judgments. The data can also supplement model providers' existing instant good/bad feedback: the first confirmation records whether the result was actually adopted, and the second records whether it gained audience recognition after adoption. If the original output, sparse interventions, and revised output are all preserved, recurring high-leverage interventions can be converted into model evaluation items and training material. This paper does not claim HCLR as the only indicator of AI usage ability, nor as a permanent ability score detached from model and task contexts.
 
 It should be emphasized that HCLR measures the user's explicit intervention expression leverage (counted in tokens in automated recording scenarios), not complete cognitive investment, and it is not a general intelligence or overall cognitive level scale.
 
@@ -64,7 +64,7 @@ The basic claim is: in AIGC use, human value cannot be measured only by text vol
 
 HCLR assesses:
 
-> Within a given large language model, task domain, and observation period, the extent to which an AI user, through limited explicit interventions (in tokens), produces an observable leverage effect on the scale of model output (in tokens). The core indicator is the output/intervention leverage ratio; adoption confirmation, audience recognition, and scope of change are reported separately as auxiliary indicators.
+> Within a given large language model, task domain, and observation period, the extent to which an AI user, through limited explicit interventions (in tokens), produces an observable leverage effect on the scale of model output (in tokens). The core indicator is the output/intervention leverage ratio; adoption confirmation and audience recognition are kept as result-state records and do not enter the computation.
 
 This definition involves four objects:
 
@@ -143,7 +143,7 @@ flowchart LR
   C2 -->|Not recognized| S2[S2 Adopted, not recognized]
 ```
 
-Symbols are defined in Sections 3.4–3.6; states are defined in Section 4.3.
+Symbols are defined in Sections 3.4–3.5; states are defined in Section 4.4.
 
 ## 3. Core Concepts
 
@@ -164,7 +164,7 @@ Typical interventions include:
 5. Decision requirement: "Without P&L, no expansion conclusion can be drawn."
 6. Framework replacement: "The current framework does not answer the question the sponsor actually wants solved."
 
-"Sparsity" should be judged after the fact from the relationship between intervention amount and scope of change, not by limiting how many questions a user may ask. The user may read fully and intervene freely; if only a few judgments produce the main changes, a sparse intervention pattern is observable.
+"Sparsity" should be judged after the fact from the relationship between intervention amount and model output scale, not by limiting how many questions a user may ask. The user may read fully and intervene freely; if only a small amount of intervention produces a large amount of effective output, a sparse intervention pattern is observable.
 
 ### 3.3 Autonomous Intervention
 
@@ -188,19 +188,7 @@ User adoption means that the output after intervention reaches the standard the 
 - Passing the code, proposal, or requirement into the next workflow;
 - Explicitly choosing this version over the original.
 
-Define the adoption variable:
-
-$$
-A_j=
-\begin{cases}
-1,& \text{the output after the }j\text{th intervention is adopted}\\
-0,& \text{not adopted}
-\end{cases}
-$$
-
-> Note: The adoption variable $A_j$ in early drafts is the same in meaning as the first-round confirmation $C_{1j}$ in Section 3.5. Formal records and calculations uniformly use $C_{1j}$; $A_j$ is no longer used separately.
-
-Graded values from 0 to 1 can also be used to represent partial adoption, adoption after revision, and direct adoption. In the early stage of the method, however, binary recording more easily forms a consistent standard.
+Adoption is recorded by the first confirmation $C_{1j}$ (Section 3.5); no separate adoption variable is defined.
 
 ### 3.5 User Double Confirmation
 
@@ -228,31 +216,9 @@ The target audience may be clients, supervisors, partner teams, users, reviewers
 
 To keep recording simple, the second confirmation only needs the status and the category of feedback basis, such as explicit acceptance, entering the next stage, core acceptance with requested local revisions, core rejection, or still pending. The system need not store audience identity or full original feedback.
 
-Double confirmation is used in HCLR as an auxiliary indicator and does not enter the computation of the output/intervention leverage ratio; it answers the quality question of "whether the change was adopted and whether it gained audience recognition."
+Double confirmation is used in HCLR as a result-state record and does not enter the computation of the output/intervention leverage ratio; it records whether the output was adopted and whether it gained audience recognition.
 
-### 3.6 Scope of Effective Change
-
-HCLR needs to record how much of the output the intervention changed, and whether the change touched important parts of the task. This scale is ordinal; the distances between levels have not been calibrated for equal intervals [8]. This paper adopts a five-level scale:
-
-| Level | Scope of change | Judgment example |
-|---|---|---|
-| P1 | Local change | Fixing one fact, wording, or single item without affecting main conclusions |
-| P2 | Module change | Changing one major paragraph, functional module, or a complete argument |
-| P3 | Conclusion change | Changing a core conclusion, or jointly revising multiple major parts |
-| P4 | Plan change | Changing main recommendations, plan ordering, delivery structure, or action direction |
-| P5 | Framework change | Changing the problem definition, analytical framework, or the organization of the whole output |
-
-Define the scope of change of the $j$th task event as:
-
-$$
-P_j\in\{1,2,3,4,5\}
-$$
-
-Scope of change is not equal to the number of rewritten characters. Deleting one erroneous core assumption may change an entire conclusion; rewriting hundreds of words of wording may still be P1. Scoring should be based on the role of the final output in the task, not on the size of the textual difference.
-
-The scope of change P1–P5 is reported as a descriptive auxiliary indicator and does not enter the leverage computation.
-
-### 3.7 Intervention Amount
+### 3.6 Intervention Amount
 
 Intervention amount represents the explicit input the user provides to change the output. This paper recommends recording the following separately rather than hastily combining them into a complex cost:
 
@@ -262,7 +228,7 @@ Intervention amount represents the explicit input the user provides to change th
 - Number of intervention turns;
 - Review and expression time.
 
-**Automated default metric**: In automated recording scenarios, the intervention amount I defaults to the token count (or character count) of the intervention text. Rationale: objective, automatically measurable, reproducible, and zero annotation burden for the user. Boundary: token count measures expression length; it does not include the reviewing, searching, fact-checking, and reasoning costs required to form judgments [10], nor does it equal the number of independent judgments. Therefore, token-based HCLR reflects "explicit intervention expression leverage," not complete cognitive investment. Because different models use different tokenizers, the tokenizer metric must be declared when comparing across models.
+**Automated default metric**: In automated recording scenarios, the intervention amount I defaults to the token count (or character count) of the intervention text. Rationale: objective, automatically measurable, reproducible, and zero annotation burden for the user. Boundary: token count measures expression length; it does not include the reviewing, searching, fact-checking, and reasoning costs required to form judgments [9], nor does it equal the number of independent judgments. Therefore, token-based HCLR reflects "explicit intervention expression leverage," not complete cognitive investment. Because different models use different tokenizers, the tokenizer metric must be declared when comparing across models.
 
 Among the metrics above, the number of independent semantic propositions is closest to "information amount." For example, "the data caliber is inconsistent, so market sizes cannot be compared directly" contains a factual judgment and an inferential judgment, and can be counted as two related propositions. In research scenarios requiring a semantic metric, judgment counts or semantic proposition counts can still be used; the two metric families must be declared in records and must not be mixed.
 
@@ -306,21 +272,7 @@ $$
 
 Computing a simple arithmetic mean of single-task-event HCLR values is not recommended, because very short interventions can produce extreme values; dividing cumulative output by cumulative intervention is more stable.
 
-### 4.4 Auxiliary Indicators (Not in the Formula)
-
-The following indicators answer quality questions beyond the leverage ratio and are reported separately:
-
-| Indicator | Definition | Note |
-|---|---|---|
-| Post-intervention adoption rate | Tasks with C1=1 (including partial) / all tasks | Whether changes were adopted |
-| Second-round completion rate | Tasks with C2 / C1=1 tasks | Feedback backfill completeness |
-| Confirmed recognition rate | C2=1 / tasks with C2 | Recognition within confirmed samples |
-| Pending ratio | S1 tasks / all tasks | Pending is not failure |
-| P1–P5 distribution | Descriptive statistics of scope of change | Nature of interventions |
-
-> Distinguish **second-round completion rate** from **confirmed recognition rate** — they have different denominators; mixing them is a common mistake.
-
-### 4.5 Result States
+### 4.4 Result States
 
 The second confirmation usually occurs later than the first. Each record should retain the following states:
 
@@ -341,9 +293,9 @@ stateDiagram-v2
 
 S1 must not be merged with S2; otherwise, outputs not yet delivered or with long feedback cycles would be wrongly counted as failures. Second-round feedback should be backfilled to the task batch of the original output, not to a new task batch created when feedback is received.
 
-### 4.6 Personal Trend Curve
+### 4.5 Personal Trend Curve
 
-The primary use of HCLR is within-user longitudinal self-assessment [11], not cross-person absolute ranking. Compute by week, month, quarter, or fixed task batch:
+The primary use of HCLR is within-user longitudinal self-assessment [10], not cross-person absolute ranking. Compute by week, month, quarter, or fixed task batch:
 
 $$
 HCLR_1,HCLR_2,\ldots,HCLR_T
@@ -353,7 +305,7 @@ A rising curve reflects that, in the same model and task environment, the user o
 
 An HCLR trend curve does not prove that a person's general cognitive level has improved. It reflects whether the user's output/intervention leverage is improving in a specific AIGC usage environment. A falling curve may result from harder tasks, model changes, or audience changes.
 
-### 4.7 A Simplified Example
+### 4.6 A Simplified Example
 
 A user reviews an AI-generated market entry report. In the task event, the model outputs 800 tokens in total (500 initial draft, 300 revised after intervention); the user makes 3 interventions totaling 60 tokens.
 
@@ -363,7 +315,7 @@ $$
 HCLR=\frac{800}{60}=13.33
 $$
 
-This value has no intrinsic cross-domain meaning; it is meaningful only when compared under the same scoring rules, similar tasks, and the same model environment. In this example, the scope of change is rated P4 (plan change) and the first confirmation is C1=1 (adopted) — these are reported alongside the leverage ratio as auxiliary indicators.
+This value has no intrinsic cross-domain meaning; it is meaningful only when compared under the same scoring rules, similar tasks, and the same model environment. In this example, the first confirmation is C1=1 (adopted), and the output enters the pending state S1.
 ## 5. Lightweight Measurement Protocol
 
 ### 5.1 Minimum Record Unit
@@ -378,8 +330,7 @@ A complete record contains at least:
 6. First confirmation: whether the user adopts;
 7. Second-round status: recognized, not recognized, or pending;
 8. The category of feedback basis for the second confirmation;
-9. Scope of change P1 to P5;
-10. Intervention information amount and time used.
+9. Intervention information amount and time used.
 
 These records are sufficient to compute basic HCLR; no complex reasoning graph, full causal graph, or economic utility model is required first.
 
@@ -390,7 +341,7 @@ These records are sufficient to compute basic HCLR; no complex reasoning graph, 
 3. Save the user's interventions verbatim, without post-hoc polishing.
 4. Save the AI output generated from the intervention.
 5. The user completes the first confirmation: whether to adopt.
-6. The user records scope of change, intervention amount, and time.
+6. The user confirms the intervention amount (tokens) and records time.
 7. Adopted outputs enter the S1 "pending" state.
 8. After the output reaches the audience and feedback is generated, the user completes the second confirmation.
 9. Second-round results are backfilled to the original task batch.
@@ -400,9 +351,9 @@ The entire process only requires the user to complete brief confirmations at two
 
 ### 5.3 The User as the Primary Rater
 
-HCLR is a self-assessment method. The user is both the intervener and the primary recorder of the two confirmations and the scope of change. This design is not meant to produce a context-free objective score, but to let the user continuously observe their own AI application performance at low cost.
+HCLR is a self-assessment method. The user is both the intervener and the primary recorder of the two confirmation result states. This design is not meant to produce a context-free objective score, but to let the user continuously observe their own AI application performance at low cost.
 
-To reduce arbitrariness, the system can provide uniform definitions and examples, requiring the user to complete P1 to P5 ratings before knowing the current HCLR result. In research or organizational applications, a small sample may be re-rated by a second rater, but independent rating is not a necessary step for every record.
+To reduce arbitrariness, the system can provide a uniform intervention-amount metric definition and result-state examples. In research or organizational applications, a small sample may be re-checked by a second reviewer, but independent review is not a necessary step for every record.
 
 ### 5.4 Basis for the Second Confirmation
 
@@ -425,7 +376,6 @@ HCLR is prioritized for within-user longitudinal comparison. When interpreting a
 - Model and version;
 - Task domain and difficulty;
 - Target audience type;
-- P1 to P5 scoring rules;
 - Intervention amount unit;
 - Proportion with completed second confirmation;
 - Observation period.
@@ -445,15 +395,15 @@ Invite users with practical AIGC experience to review the following definitions:
 - What counts as one independent intervention;
 - What first-round adoption is;
 - Under what circumstances the second confirmation can be completed;
-- Whether P1 to P5 covers common changes;
+- Whether result states (S0–S3) are easy to judge;
 - Whether intervention information amount is easy to record;
 - Whether the two confirmations add unacceptable workload.
 
 Collect real cases through interviews and check whether common interventions are missing from the categories. Revise the scale where necessary instead of insisting on a priori conceptual completeness.
 
-### 6.2 Scoring Repeatability
+### 6.2 Result-State Repeatability
 
-Ask users to rate the same set of anonymized cases with P1 to P5 at different times, and check whether their judgments are roughly stable. In research settings, a second rater can review a small sample to identify confusing boundaries in the scale. If P3 and P4 are persistently hard to distinguish, the definitions and examples should be revised.
+Ask users to judge result states (S0–S3) on the same set of anonymized cases at different times, and check whether their judgments are roughly stable. In research settings, a second reviewer can confirm a small sample to identify confusing boundaries in the state definitions. If S1 and S2 are persistently hard to distinguish, the state definitions and examples should be revised.
 
 ### 6.3 Second-Round Confirmation Rate
 
@@ -494,7 +444,7 @@ If HCLR can identify capability changes of "little output but large change" that
 The initial study only needs to test four questions:
 
 1. Can the two confirmations be completed at low cost in real AIGC tasks?
-2. Can users use the P1 to P5 scale consistently?
+2. Can users judge result states consistently?
 3. Can the HCLR trend curve reflect changes in the user's sparse intervention performance?
 4. Can delayed reminders and personal curve feedback improve the second-round confirmation rate?
 
@@ -541,7 +491,7 @@ The initial study is primarily descriptive:
 - Second-round confirmation rate;
 - Pending ratio;
 - Share of high-leverage interventions in all effective change;
-- P1 to P5 distribution;
+- Result-state distribution;
 - Relationship of HCLR to revised characters, prompt length, and time;
 - Curve differences before and after model or task changes.
 
@@ -553,7 +503,7 @@ Whether the method holds up first depends on whether it meets these conditions:
 
 - Users find the cost of the two confirmations acceptable;
 - Users can understand the meaning of scores and curves;
-- P1 to P5 can be used consistently;
+- Result states can be judged consistently;
 - The curve can explain real high-leverage intervention cases;
 - Scores are not misread as general intelligence or absolute performance;
 - Compared with text volume and edit count, it provides new self-understanding;
@@ -633,35 +583,31 @@ Model providers must also distinguish model contribution from human contribution
 
 ## 9. Potential Misuse and Limitations
 
-### 9.1 Treating Scope of Change as Scope of Destruction
+### 9.1 The User Bears All Confirmation
 
-The scope of change P1–P5 no longer enters the leverage computation, so pursuing high P values alone does not directly raise the score; however, the P distribution still reflects the nature of interventions and should be read together with adoption and recognition confirmations.
-
-### 9.2 The User Bears All Confirmation
-
-The user both intervenes, rates, and completes auxiliary confirmations, which may lead to overestimating their own contribution [9]. This limitation comes from the method's choice of low cost and sustainability. The core leverage ratio is obtained entirely from token statistics and does not depend on the user's rating judgments; auxiliary indicators are explicitly called "self-reference assessment values."
+The user both intervenes and completes result-state confirmations, which may lead to overestimating their own contribution [8]. This limitation comes from the method's choice of low cost and sustainability. The core leverage ratio is obtained entirely from token statistics and does not depend on the user's rating judgments; result-state records are explicitly called "self-reference assessment values."
 
 Optional sample re-rating, version records, and feedback basis categories can reduce arbitrariness, but every record should not be turned back into a complex external review.
 
-### 9.3 Second-Round Missingness Is Not Random
+### 9.2 Second-Round Missingness Is Not Random
 
 Users are more likely to backfill feedback for successful, important, or memorable outputs; failed and ordinary outputs may remain in S1 for a long time. When reporting second-round HCLR, the pending ratio must be disclosed; do not display only S3 cases.
 
-### 9.4 Persuasion May Come from Non-Content Factors
+### 9.3 Persuasion May Come from Non-Content Factors
 
 Audience recognition may be affected by identity, power, expression style, or organizational relationships. HCLR does not interpret recognition as objective correctness; it treats it as evidence of usability in a specific social context. If the research goal requires excluding identity effects, anonymous evaluation can be added; if the goal is to evaluate real-world usage performance, these contextual factors need not all be excluded.
 
-### 9.5 Model Changes
+### 9.4 Model Changes
 
 Model upgrades can change draft quality and responsiveness to interventions. Therefore, curves must be accompanied by model version and observation period. Cross-model comparisons should re-establish baselines; historical scores cannot be carried over directly.
 
 Beyond model upgrades, regenerating the same task with the same model also involves stochastic variation. To control this counterfactual source, users can periodically run a "regenerate without intervention" control on a subset of tasks: record the difference between the model's re-generated output and O0 when no human intervention is applied. If control samples show substantial natural variation, changes in the curve should be attributed to human intervention with caution.
 
-### 9.6 Task Differences
+### 9.5 Task Differences
 
-The scopes of change in strategic plans, marketing copy, and code review are not directly interchangeable. HCLR is suitable for use within the same domain and task family. Cross-domain aggregation can only serve as a personal profile description, not precise ranking.
+The output and intervention metrics in strategic plans, marketing copy, and code review are not directly interchangeable. HCLR is suitable for use within the same domain and task family. Cross-domain aggregation can only serve as a personal profile description, not precise ranking.
 
-### 9.7 Metric Gaming
+### 9.6 Metric Gaming
 
 If HCLR is directly tied to performance, compensation, or termination decisions, users may compress their intervention expressions (reducing the denominator tokens), deliberately extend model outputs (increasing the numerator tokens), or select tasks that produce high leverage. In its early stage, HCLR is more suitable for:
 
@@ -673,7 +619,7 @@ If HCLR is directly tied to performance, compensation, or termination decisions,
 
 Until reliability, validity, and gaming resistance are fully validated, HCLR is not recommended for high-stakes personnel decisions.
 
-### 9.8 Fewer Interventions Is Not Always Better
+### 9.7 Fewer Interventions Is Not Always Better
 
 Sparsity is a possible outcome of high-leverage intervention, not a requirement to reduce feedback. Complex tasks may need multiple rounds of intervention. HCLR rewards effective change per unit of intervention; it does not deny the value of careful review.
 
@@ -719,7 +665,7 @@ HCLR(u\mid m,d,T)=
 }
 $$
 
-By continuously recording on a fixed schedule, users can form a personal trend curve and observe whether they can produce more model output tokens with fewer intervention tokens. Double confirmation and scope of change serve as auxiliary indicators, answering quality questions beyond the leverage ratio. The curve is a reference for output/intervention leverage in AIGC usage contexts, not a measure of general cognitive level or a permanent ability score.
+By continuously recording on a fixed schedule, users can form a personal trend curve and observe whether they can produce more model output tokens with fewer intervention tokens. Double confirmation serves as a result-state record, answering quality questions beyond the leverage ratio. The curve is a reference for output/intervention leverage in AIGC usage contexts, not a measure of general cognitive level or a permanent ability score.
 
 The same double-confirmation data may also help model providers improve generation quality. Compared with instant good/bad ratings, it further records whether the output was actually adopted and whether it gained audience recognition after adoption. If the original output, sparse interventions, and revised output are all preserved, frequent high-leverage interventions can be converted into model evaluation items and training material.
 
@@ -741,7 +687,6 @@ HCLR is not an objective truth standard, not a complete theory of human-AI colla
 | Pending | 待确认 |
 | Task event | 任务事件 |
 | Intervention amount (I) | 介入量 |
-| Scope of change (P1–P5) | 改变范围 |
 | Information leverage | 信息杠杆率 |
 | Time leverage | 时间杠杆率 |
 | Result states (S0–S3) | 结果状态 |
@@ -759,7 +704,6 @@ HCLR is not an objective truth standard, not a complete theory of human-AI colla
 [5] https://doi.org/10.1287/mnsc.2016.2643 — Dietvorst et al. (2018), Overcoming Algorithm Aversion
 [6] https://arxiv.org/abs/2102.09692 — Buçinca et al. (2021), To Trust or to Think
 [7] https://arxiv.org/abs/2203.02155 — Ouyang et al. (2022), Training language models to follow instructions with human feedback
-[8] https://doi.org/10.1126/science.103.2684.677 — Stevens (1946), On the Theory of Scales of Measurement
-[9] https://doi.org/10.1037/0021-9010.88.5.879 — Podsakoff et al. (2003), Common Method Biases in Behavioral Research
-[10] https://doi.org/10.1016/j.tics.2016.07.002 — Risko & Gilbert (2016), Cognitive Offloading
-[11] https://doi.org/10.1093/acprof:oso/9780195152968.001.0001 — Singer & Willett (2003), Applied Longitudinal Data Analysis
+[8] https://doi.org/10.1037/0021-9010.88.5.879 — Podsakoff et al. (2003), Common Method Biases in Behavioral Research
+[9] https://doi.org/10.1016/j.tics.2016.07.002 — Risko & Gilbert (2016), Cognitive Offloading
+[10] https://doi.org/10.1093/acprof:oso/9780195152968.001.0001 — Singer & Willett (2003), Applied Longitudinal Data Analysis

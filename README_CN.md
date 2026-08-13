@@ -230,7 +230,7 @@ HCLR正在用真实对话数据验证中（以AI助手对话为任务事件来�
 
 ## 作者
 
-[tri-chinaroot](https://github.com/tri-chinaroot)
+[Rootosophy](https://github.com/Rootosophy)
 
 ## 版本
 

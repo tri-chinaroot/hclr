@@ -8,7 +8,7 @@
 >
 > Revision history: v0.1 (2026-08-12) initial manuscript; v0.2 (2026-08-12) token default metric for intervention amount, task-event unit alignment, flowcharts, glossary, and psychometric references; v0.3 (2026-08-12) core formula changed to output/intervention leverage ratio (O/I); v0.4 (2026-08-12) scope-of-change P1–P5 and the auxiliary-indicator concept removed entirely; double confirmation retained as a result-state record.
 >
-> Author: tri-chinaroot
+> Author: Rootosophy
 
 ## Abstract
 

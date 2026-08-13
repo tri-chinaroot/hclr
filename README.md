@@ -230,7 +230,7 @@ See [LICENSE](LICENSE) for details.
 
 ## Author
 
-[tri-chinaroot](https://github.com/tri-chinaroot)
+[Rootosophy](https://github.com/Rootosophy)
 
 ## Version
 

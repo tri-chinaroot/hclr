@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/tri-chinaroot/hclr/schema/hclr-record.schema.json",
+  "$id": "https://github.com/Rootosophy/hclr/schema/hclr-record.schema.json",
   "title": "HCLR任务事件记录",
   "description": "HCLR（人类认知杠杆率）任务事件记录Schema。核心指标 HCLR=O/I：分子O=任务事件内模型输出Token（或字符）总和（含全部生成轮次），分母I=使用者介入Token（或字符）总和（不含初始任务描述）。C1/C2为结果状态记录（S0-S3），不进入公式。",
   "type": "object",

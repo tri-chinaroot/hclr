@@ -3,12 +3,12 @@ message: "If you use HCLR in your work, please cite this repository. Non-commerc
 title: "HCLR: Human Cognitive Leverage Ratio — A Method for AI Users to Assess Their Influence on Model Outputs"
 abstract: "A self-assessment method for AI users. HCLR records the process from an initial AI output (O0) through sparse human interventions (h) to a final deliverable (O1), with double confirmation (C1 adoption, C2 audience recognition)."
 authors:
-  - family-names: "tri-chinaroot"
+  - family-names: "Rootosophy"
     given-names: ""
-    website: "https://github.com/tri-chinaroot"
+    website: "https://github.com/Rootosophy"
 version: "0.4.0"
 date-released: "2026-08-12"
-repository-code: "https://github.com/tri-chinaroot/hclr"
+repository-code: "https://github.com/Rootosophy/hclr"
 license: "LicenseRef-custom-noncommercial-notice-attribution"
 keywords:
   - "human-ai interaction"

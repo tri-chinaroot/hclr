@@ -1,7 +1,7 @@
 # HCLR 自定义授权协议 / Custom License
 
 **人类认知杠杆率（HCLR）— Human Cognitive Leverage Ratio**
-作者 / Author: tri-chinaroot
+作者 / Author: Rootosophy
 
 生效日期 / Effective date: 2026-08-12
 
@@ -14,10 +14,10 @@
 任何人或组织可以**免费**使用、复制、修改、分发本仓库的全部内容（包括文档、Schema、代码等），但必须同时满足以下条件：
 
 > 1. **告知（Notification）**：使用或引用前，需在本仓库的GitHub Issues中**开一个Issue**，说明使用意图、使用方式和联系方式；
-> 2. **署名（Attribution）**：在衍生文档、产品、展示材料中明确署名作者 `tri-chinaroot`，并保留本授权声明；
+> 2. **署名（Attribution）**：在衍生文档、产品、展示材料中明确署名作者 `Rootosophy`，并保留本授权声明；
 > 3. **非商业（Non-commercial）**：不得用于任何商业目的（包括但不限于销售、付费服务、商业咨询交付物、企业内商业化使用）。
 
-**Non-commercial use is free, subject to: (1) opening a GitHub Issue in this repository to notify the author before use; (2) crediting the author `tri-chinaroot` in any derivative work; (3) no commercial use of any kind.**
+**Non-commercial use is free, subject to: (1) opening a GitHub Issue in this repository to notify the author before use; (2) crediting the author `Rootosophy` in any derivative work; (3) no commercial use of any kind.**
 
 ### 2. 商业使用 / Commercial Use
 
@@ -30,7 +30,7 @@
 允许修改和衍生，但衍生作品必须：
 
 - 继续遵守本授权协议；
-- 在显著位置声明"基于HCLR（tri-chinaroot）修改"。
+- 在显著位置声明"基于HCLR（Rootosophy）修改"。
 
 **Derivatives must keep this license and state their origin.**
 

@@ -1,6 +1,6 @@
 # HCLR Collection Protocol Specification (v1.0)
 
-> Version: 1.0.0 (2026-08-12) ｜ Author: tri-chinaroot ｜ 中文版: [PROTOCOL_CN.md](PROTOCOL_CN.md)
+> Version: 1.0.0 (2026-08-12) ｜ Author: Rootosophy ｜ 中文版: [PROTOCOL_CN.md](PROTOCOL_CN.md)
 >
 > This document defines **how to continuously collect HCLR data in any AI conversation system**. It is the operational companion to the method manuscript ([PAPER_EN.md](PAPER_EN.md)): the paper defines *what to measure*; this protocol defines *how to measure it*.
 

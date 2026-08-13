@@ -1,6 +1,6 @@
 # HCLR 采集协议规范（v1.0）
 
-> 版本：1.0.0（2026-08-12）｜ 作者：tri-chinaroot ｜ English: [PROTOCOL.md](PROTOCOL.md)
+> 版本：1.0.0（2026-08-12）｜ 作者：Rootosophy ｜ English: [PROTOCOL.md](PROTOCOL.md)
 >
 > 本文档定义**如何在任意AI对话系统中持续采集HCLR数据**。它是方法论文（[PAPER_CN.md](PAPER_CN.md)）的落地规范：论文定义"量什么"，本规范定义"怎么量"。
 

@@ -198,6 +198,11 @@ The full method manuscript (with formulas, measurement protocol, and validation 
 - [Method manuscript (CN)](PAPER_CN.md)
 - [Source ledger](PAPER-sources.json)
 
+Collection protocol:
+
+- [HCLR Collection Protocol (EN)](PROTOCOL.md) — how to continuously collect HCLR data in any conversation system
+- [采集协议规范（中文）](PROTOCOL_CN.md)
+
 > The manuscript is labeled as a v0.4 method draft for dissemination, not a formal peer-reviewed publication. See the document statement at the top of each paper for details.
 
 ## Empirical Pilot

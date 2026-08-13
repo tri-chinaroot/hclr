@@ -198,6 +198,11 @@ HCLR 衡量"你对AI输出的介入杠杆"，而 [TOA询问法](https://github.c
 - [方法稿全文（英文）](PAPER_EN.md)
 - [来源账本](PAPER-sources.json)
 
+落地采集规范：
+
+- [HCLR采集协议规范（中文）](PROTOCOL_CN.md) —— 在任意对话系统中持续采集HCLR数据的操作规范
+- [采集协议规范（英文）](PROTOCOL.md)
+
 > 论文标注为v0.4方法稿，用于传播而非正式学术发表；具体说明见各文档开头的文档声明。
 
 ## 实证Pilot

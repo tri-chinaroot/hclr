@@ -186,10 +186,6 @@ Cross-person comparison is **only allowed under strict conditions**: unified mod
 | Model provider | High-leverage intervention discovery | Repeated human interventions reveal model blind spots, evaluation items, and training material (second-layer application) |
 | Community | Leaderboard / challenge | Strict condition control required, see 4.4 |
 
-## Related Method: TOA Questioning
-
-[TOA Questioning Method](https://github.com/tri-chinaroot/toa-questioning) is an **independent method** from HCLR: TOA elicits the user's intent through one-question-at-a-time interviews (output: a Q&A document); HCLR measures the user's intervention impact on model output (output: a leverage ratio). They solve different problems and can be used independently; they may appear sequentially in the same workflow but have no data dependency.
-
 ## Original Manuscript
 
 The full method manuscript (with formulas, measurement protocol, and validation agenda):

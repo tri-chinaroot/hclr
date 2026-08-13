@@ -90,16 +90,3 @@ C2 (second round, after actual use): approved / rejected / pending
 | Hermes (current) | In-conversation collection: the assistant records O/I during the session and requests C1 at the end |
 | Other agent frameworks | Message middleware/hooks: listen to assistant/user messages and record per fields |
 | Manual mode | Works with any tool: fill in a record by hand after the conversation per this protocol |
-
-## 10. Relationship with the TOA Questioning Method (Independent Methods)
-
-[TOA Questioning Method](https://github.com/tri-chinaroot/toa-questioning) is an **independent method** that solves a different problem:
-
-| | TOA | HCLR |
-|---|---|---|
-| Purpose | Elicit the user's intent/knowledge | Measure the user's impact on model output |
-| Output | Q&A document (information record) | Leverage ratio (measurement result) |
-| Behavior | AI asks; user answers (providing information) | User intervenes; modifies existing model output |
-| Active party | AI is active | User is active |
-
-**Note**: user answers in a TOA session are *not* HCLR interventions — answering provides information; it does not modify existing output. Therefore a TOA record is **not** directly an HCLR task event. The two methods may appear sequentially in the same workflow (e.g., use TOA to elicit requirements, generate a draft, then measure subsequent interventions with HCLR), but this is independent sequential use, not a data dependency.
